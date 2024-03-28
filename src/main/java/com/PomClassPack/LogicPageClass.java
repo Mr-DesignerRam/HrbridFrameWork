@@ -2,8 +2,11 @@ package com.PomClassPack;
 
 import org.openqa.selenium.WebElement;
 
+
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import com.Util.Classes.Utility;
 
 import com.hybrid.project.BaseClass;
 
@@ -22,6 +25,8 @@ public class LogicPageClass extends BaseClass {
 	
 	@FindBy(xpath="//input[@name='username']")
 	private WebElement userName;
+	
+	
 
 	@FindBy(xpath="//input[@name='password']")
 	private WebElement password;
@@ -51,21 +56,30 @@ public class LogicPageClass extends BaseClass {
 	
 	
 	public void setUserName(String UName) {
-		userName.sendKeys(UName);
+		
+		Utility.setText(UName, userName); 
+//		userName.sendKeys(UName);
 		
 	}
 	public void setPassword(String pass) {
-		password.sendKeys(pass);
+		
+		Utility.setText(pass,password );
+		
+//		password.sendKeys(pass);
 		
 	}
 	
 	
 	public void login() {
-		LogIn.click();
+		
+		Utility.eleClick(LogIn);
+//		LogIn.click();
 	}
 	
 	public void homePageLink() {
-		linkClick.click();
+		
+		Utility.eleClick(linkClick);
+//		linkClick.click();
 	}
 
 }
